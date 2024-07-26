@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Proxy</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        (function() {
+            // Prompt for the URL
+            var url = prompt("Enter the website URL to mimic:", "https://example.com");
+
+            if (!url) {
+                alert("No URL provided!");
+                return;
+            }
+
+            // Your proxy URL
+            var proxy = 'https://corsproxy.io/?';
+            var proxiedUrl = proxy + encodeURIComponent(url);
+
+            // Create an iframe to load the proxied URL
+            var iframe = document.createElement('iframe');
+            iframe.src = proxiedUrl;
+
+            // Clear the current page content and append the iframe
+            document.body.innerHTML = '';
+            document.body.appendChild(iframe);
+        })();
+    </script>
+</body>
+</html>
