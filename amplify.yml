@@ -1,21 +1,10 @@
 version: 1
 applications:
-  backend:
-    phases:
-      preBuild:
-        commands:
-          - echo "Skipping npm install as dependencies are pre-installed"
-      build:
-        commands:
-          - echo "Building the project..."
-      postBuild:
-        commands:
-          - echo "Post build steps if needed..."
   frontend:
     phases:
       preBuild:
         commands:
-          - echo "Pre-build phase"
+          - echo "Skipping npm install as dependencies are pre-installed"
       build:
         commands:
           - npm run start
